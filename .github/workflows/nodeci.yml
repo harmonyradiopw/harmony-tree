@@ -1,4 +1,4 @@
-name: Node.js CI & Publish
+name: Node.js CI
 
 on:
   push:
@@ -18,7 +18,3 @@ jobs:
     - run: rm -rf node_modules && yarn install --frozen-lockfile
     - run: yarn run build
     - run: yarn test
-    - name: Publish to NPM registry
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
