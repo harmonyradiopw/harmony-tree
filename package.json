@@ -1,6 +1,6 @@
 {
   "name": "harmony-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tree Logger",
   "main": "build/index.js",
   "repository": "https://github.com/harmonyradiopw/harmony-tree",

@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI & Publish
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: 12.x
 
     steps:
     - uses: actions/checkout@v2
@@ -22,3 +22,7 @@ jobs:
     - run: rm -rf node_modules && yarn install --frozen-lockfile
     - run: yarn run build
     - run: yarn test
+    - name: Publish to NPM registry
+    run: npm publish
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
